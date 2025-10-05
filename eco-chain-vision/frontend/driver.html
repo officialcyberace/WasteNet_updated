@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WasteNet - Driver Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <link rel="stylesheet" href="driver.css">
+</head>
+<body class="bg-[#0F172A] text-white font-sans overflow-hidden">
+
+    <div id="map" class="absolute top-0 bottom-0 left-0 right-0"></div>
+
+    <div class="absolute top-0 left-0 p-6 h-full w-full max-w-md flex flex-col">
+        <header class="text-left mb-6">
+            <h1 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-400">
+                Driver Dashboard
+            </h1>
+            <p class="text-lg text-gray-400 mt-2" style="text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Live Bin Status & Optimized Routing</p>
+        </header>
+
+        <div id="alert-panel" class="flex-grow bg-white/5 border border-white/10 rounded-lg shadow-lg backdrop-blur-xl p-4 overflow-y-auto">
+            <h2 class="text-3xl font-bold text-gray-200 mb-4 border-b border-white/10 pb-2">Full Bin Alerts</h2>
+            <div id="alerts-container" class="space-y-4">
+                <!-- Alert cards will be injected here by driver.js -->
+                <p id="no-alerts-message" class="text-gray-400 text-center py-8">No full bins at the moment. All systems normal.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.2/socket.io.min.js"></script>
+    <script src="driver.js"></script>
+</body>
+</html>
